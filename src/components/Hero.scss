@@ -1,0 +1,49 @@
+@import "../variables";
+
+.hero {
+  //outline: 1px solid white;
+  @include flex-center;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  gap: 3rem;
+  margin-top: -10rem;
+  min-width: $screen-small;
+  max-width: $screen-big;
+  width: 100vw;
+  background-image: url("../assets/images/pattern-rings.svg"),
+    url("../assets/images/pattern-circle.svg");
+  background-repeat: no-repeat;
+  background-position: right 50vw top 12.4rem, right -7rem top 28rem;
+  z-index: 0;
+
+  & .photo {
+    width: 17.4rem;
+  }
+
+  text-align: center;
+  & .greeting {
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 4rem;
+
+    & > .name {
+      border-bottom: 2px solid $color-primary;
+      margin-bottom: -2px;
+    }
+  }
+
+  & .description {
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: $color-gray;
+  }
+
+  & .contact-link {
+    color: $color-font;
+    text-transform: uppercase;
+    line-height: 2.6rem;
+    letter-spacing: 0.23rem;
+    border-bottom: 2px solid $color-primary;
+  }
+}
