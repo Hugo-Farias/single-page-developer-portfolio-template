@@ -1,7 +1,6 @@
 @import "../variables";
 
 .hero {
-  //outline: 1px solid white;
   @include flex-center;
   flex-wrap: wrap;
   flex-direction: row-reverse;
@@ -14,10 +13,24 @@
     url("../assets/images/pattern-circle.svg");
   background-repeat: no-repeat;
   background-position: right 50vw top 12.4rem, right -7rem top 28rem;
-  z-index: 0;
 
   & .photo {
+    z-index: -1;
+    @include image("../assets/images/image-profile-mobile.webp");
     width: 17.4rem;
+    height: 38.3rem;
+
+    @media (min-width: $screen-medium) {
+      @include image("../assets/images/image-profile-tablet.webp");
+      width: 32.2rem;
+      height: 60rem;
+    }
+
+    @media (min-width: $screen-big) {
+      @include image("../assets/images/image-profile-desktop.webp");
+      width: 44.5rem;
+      height: 72rem;
+    }
   }
 
   text-align: center;
@@ -37,6 +50,7 @@
     font-size: 1.6rem;
     line-height: 2.6rem;
     color: $color-gray;
+    padding: 0 1rem;
   }
 
   & .contact-link {

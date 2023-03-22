@@ -7,7 +7,8 @@ $color-gray: #d9d9d9;
 
 //Screens
 $screen-small: 320px;
-$screen-big: 1440px;
+$screen-medium: 768px;
+$screen-big: 1024px;
 
 //Mixins
 @mixin flex-center {

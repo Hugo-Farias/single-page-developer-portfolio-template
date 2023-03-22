@@ -1,13 +1,16 @@
 import "./Hero.scss";
-import photo from "../assets/images/image-profile-mobile.webp";
+import { useEffect } from "react";
 
 const Hero = function () {
+  useEffect(() => console.log(window.innerWidth), [window.innerWidth]);
+
   return (
     <section className="hero">
-      <img src={photo} alt="photo of Adam Keyes" className="photo" />
+      <div className="photo" />
 
       <h1 className="greeting">
-        Nice to meet you! <br /> I'm <span className="name">Adam Keyes</span>.
+        Nice to meet you!
+        <br /> I'm <span className="name">Adam Keyes</span>.
       </h1>
 
       <h2 className="description">
