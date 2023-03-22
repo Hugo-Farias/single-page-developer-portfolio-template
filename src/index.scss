@@ -21,12 +21,22 @@
 }
 
 body {
+  position: relative;
   //margin: 2.5rem 0 0 0;
-  padding: 2.5rem 2.5rem 0;
+  //padding: 2.5rem 0;
   display: flex;
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url("./assets/images/pattern-rings.svg"),
+    url("./assets/images/pattern-circle.svg");
+  background-repeat: no-repeat;
+  background-position: right 50vw top 12.4rem, right -5rem top 28rem;
+  z-index: -999;
+
+  @media (min-width: $screen-small) {
+    background-position: right 50vw top 12.4rem, right 50vw top 30vh;
+  }
 }
 
 a {

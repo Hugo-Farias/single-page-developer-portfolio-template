@@ -1,63 +1,89 @@
 @import "../variables";
 
 .hero {
+  position: relative;
   @include flex-center;
   flex-wrap: wrap;
   flex-direction: row-reverse;
   gap: 3rem;
-  margin-top: -10rem;
-  min-width: $screen-small;
-  max-width: $screen-big;
-  width: 100vw;
-  background-image: url("../assets/images/pattern-rings.svg"),
-    url("../assets/images/pattern-circle.svg");
-  background-repeat: no-repeat;
-  background-position: right 50vw top 12.4rem, right -7rem top 28rem;
+  text-align: center;
+
+  @media (min-width: $screen-small) {
+    gap: unset;
+    flex-wrap: unset;
+    text-align: unset;
+  }
 
   & .photo {
+    $offset: 8;
     z-index: -1;
+    margin-top: -#{$offset}rem;
     @include image("../assets/images/image-profile-mobile.webp");
     width: 17.4rem;
     height: 38.3rem;
 
-    @media (min-width: $screen-medium) {
+    @media (min-width: $screen-small) {
+      //position: absolute;
+      //top: -8rem;
+      //right: -2rem;
       @include image("../assets/images/image-profile-tablet.webp");
-      width: 32.2rem;
-      height: 60rem;
+      margin-right: -33%;
+      transform: translateX(-50%);
+      background-position: 100% 0;
+      //width: 32rem;
+      height: #{60-$offset}rem;
     }
 
-    @media (min-width: $screen-big) {
+    @media (min-width: $screen-medium) {
       @include image("../assets/images/image-profile-desktop.webp");
       width: 44.5rem;
-      height: 72rem;
+      height: #{$offset - 72}rem;
     }
   }
 
-  text-align: center;
   & .greeting {
-    font-weight: 700;
-    font-size: 4rem;
-    line-height: 4rem;
+    margin-right: auto;
 
-    & > .name {
-      border-bottom: 2px solid $color-primary;
-      margin-bottom: -2px;
+    @media (min-width: $screen-small) {
+      max-width: 49.5rem;
     }
-  }
 
-  & .description {
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: 2.6rem;
-    color: $color-gray;
-    padding: 0 1rem;
-  }
+    & .introduction {
+      font-weight: 700;
+      font-size: 3.3rem;
+      line-height: 4rem;
 
-  & .contact-link {
-    color: $color-font;
-    text-transform: uppercase;
-    line-height: 2.6rem;
-    letter-spacing: 0.23rem;
-    border-bottom: 2px solid $color-primary;
+      & > .name {
+        display: inline-block;
+        border-bottom: 2px solid $color-primary;
+        margin-bottom: -2px;
+      }
+
+      @media (min-width: $screen-small) {
+        font-size: 7.2rem;
+        line-height: 7.2rem;
+      }
+    }
+
+    & .description {
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      color: $color-gray;
+      padding: 3rem 0;
+
+      @media (min-width: $screen-small) {
+        font-size: 1.8rem;
+      }
+    }
+
+    & .contact-link {
+      display: inline-block;
+      color: $color-font;
+      text-transform: uppercase;
+      line-height: 2.6rem;
+      letter-spacing: 0.23rem;
+      border-bottom: 2px solid $color-primary;
+    }
   }
 }

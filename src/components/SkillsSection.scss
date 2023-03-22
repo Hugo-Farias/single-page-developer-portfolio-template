@@ -1,0 +1,29 @@
+@import "../variables";
+
+.skills-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 27rem);
+  justify-content: space-around;
+  margin-inline: auto;
+  max-width: 100rem;
+
+  & .skill-card {
+    text-align: center;
+    margin: 1.5rem;
+    @media (min-width: $screen-small) {
+      text-align: left;
+    }
+    & .name {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    & .years {
+      font-weight: 500;
+      font-size: 1.6rem;
+      //opacity: 0.5;
+      color: $color-gray;
+    }
+  }
+}

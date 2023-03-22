@@ -9,6 +9,12 @@ $icon-list: github, frontend-mentor, linkedin, twitter;
   align-items: center;
   //z-index: 1;
 
+  @media (min-width: $screen-small) {
+    flex-direction: unset;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+  }
+
   & .name {
     font-size: 2.4rem;
     font-weight: bold;
