@@ -25,7 +25,7 @@ const SkillsSection = function () {
   return (
     <>
       <section className="skills-section">{contentJSX}</section>
-      <Separator />
+      <Separator hide={true} />
     </>
   );
 };
