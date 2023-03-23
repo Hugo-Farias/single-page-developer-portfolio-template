@@ -1,5 +1,4 @@
 import "./ProjectsSection.scss";
-import ContactMeBtn from "./common/ContactMeBtn";
 import ProjectCard from "./ProjectCard";
 
 const DUMMY_DATA = [

@@ -21,7 +21,6 @@ $icon-list: github, frontend-mentor, linkedin, twitter;
   }
 
   & > .socials {
-    //margin-right: 2rem;
     padding-inline: 2rem;
     z-index: 10;
     @include flex-center;

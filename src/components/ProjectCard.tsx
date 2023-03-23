@@ -1,5 +1,6 @@
 import "./ProjectCard.scss";
 import React, { useEffect, useState } from "react";
+import Btn from "./common/Btn";
 
 interface PropsT {
   data: { image: string; name: string; tech: string[] };
@@ -34,8 +35,8 @@ const ProjectCard: React.FC<PropsT> = function ({ data }) {
       </div>
 
       <div className="buttons">
-        <button>View Project</button>
-        <button>View Code</button>
+        <Btn>View Project</Btn>
+        <Btn>View Code</Btn>
       </div>
     </div>
   );

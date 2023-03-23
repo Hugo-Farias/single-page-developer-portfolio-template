@@ -13,9 +13,5 @@
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
     grid-gap: 2rem;
     justify-content: center;
-
-    //@media (min-width: $screen-medium) {
-    //  grid-template-columns: repeat(auto-fit, 45rem);
-    //}
   }
 }
