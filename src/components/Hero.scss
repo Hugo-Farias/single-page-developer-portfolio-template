@@ -3,19 +3,20 @@
 .hero {
   position: relative;
   @include flex-center;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
+  flex-direction: column;
   gap: 3rem;
   text-align: center;
 
   @media (min-width: $screen-small) {
     gap: unset;
+    min-height: 45rem;
+    flex-direction: row-reverse;
     flex-wrap: unset;
     text-align: unset;
   }
 
   & .photo {
-    $offset: 8;
+    $offset: 7;
     z-index: -1;
     margin-top: -#{$offset}rem;
     @include image("../assets/images/image-profile-mobile.webp");
@@ -23,29 +24,35 @@
     height: 38.3rem;
 
     @media (min-width: $screen-small) {
-      //position: absolute;
-      //top: -8rem;
-      //right: -2rem;
+      position: absolute;
+      margin-right: -2rem;
+      top: 0;
+      right: 0;
       @include image("../assets/images/image-profile-tablet.webp");
-      margin-right: -33%;
-      transform: translateX(-50%);
-      background-position: 100% 0;
-      //width: 32rem;
+      //margin-right: -2rem;
+      //transform: translateX(-50%);
+      background-position: right;
+      width: 32rem;
       height: #{60-$offset}rem;
     }
 
     @media (min-width: $screen-medium) {
       @include image("../assets/images/image-profile-desktop.webp");
-      width: 44.5rem;
+      //width: 44.5rem;
+      margin-right: 0;
       height: #{$offset - 72}rem;
+      right: 0;
     }
   }
 
   & .greeting {
-    margin-right: auto;
+    //margin-right: auto;
+    max-width: 36rem;
 
     @media (min-width: $screen-small) {
-      max-width: 49.5rem;
+      width: 75vw;
+      max-width: 71rem;
+      margin-right: auto;
     }
 
     & .introduction {
@@ -74,6 +81,7 @@
 
       @media (min-width: $screen-small) {
         font-size: 1.8rem;
+        max-width: 50rem;
       }
     }
 

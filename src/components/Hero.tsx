@@ -10,7 +10,7 @@ const Hero = function () {
 
         <div className="greeting">
           <h1 className="introduction">
-            Nice to meet you! I'm <span className="name">Adam Keyes</span>.
+            Nice to meet you! I'm <span className="name">Adam Keyes.</span>
           </h1>
 
           <h2 className="description">
