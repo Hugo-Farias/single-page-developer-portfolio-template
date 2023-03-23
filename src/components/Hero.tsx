@@ -1,5 +1,6 @@
 import "./Hero.scss";
 import Separator from "./common/Separator";
+import ContactMeBtn from "./common/ContactMeBtn";
 
 const Hero = function () {
   return (
@@ -18,9 +19,7 @@ const Hero = function () {
             accessible web apps that users love.
           </h2>
 
-          <h2 className="contact-link">
-            <a href="">Contact me</a>
-          </h2>
+          <ContactMeBtn />
         </div>
       </section>
       <Separator />

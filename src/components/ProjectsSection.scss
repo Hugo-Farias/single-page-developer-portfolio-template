@@ -1,0 +1,11 @@
+@import "../variables";
+
+.projects {
+  & .title {
+    @include flex-center;
+    justify-content: space-between;
+    & .title-name {
+      font-size: 6.8rem;
+    }
+  }
+}

@@ -9,9 +9,10 @@
 
   & .skill-card {
     text-align: center;
-    margin: 1.5rem;
+    margin: 1.5rem auto;
     @media (min-width: $screen-small) {
       text-align: left;
+      margin-left: 0;
     }
     & .name {
       font-size: 3.2rem;
