@@ -1,5 +1,29 @@
+@import "../variables";
+
 .project-card {
-  background-color: red;
-  height: 40rem;
-  width: 50rem;
+  padding: 1rem;
+  //max-width: 34rem;
+
+  & > .async-image {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  & .info {
+    & > .name {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+    }
+
+    & > .tech-container {
+      @include flex-center;
+      gap: 1rem;
+      justify-content: flex-start;
+      & > .tech {
+        color: $color-gray;
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+    }
+  }
 }

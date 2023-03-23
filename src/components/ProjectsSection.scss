@@ -1,11 +1,21 @@
 @import "../variables";
 
 .projects {
-  & .title {
-    @include flex-center;
-    justify-content: space-between;
-    & .title-name {
-      font-size: 6.8rem;
+  & .title-name {
+    font-size: 6.8rem;
+    @media (max-width: $screen-small) {
+      font-size: 5rem;
     }
+  }
+
+  & .project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    grid-gap: 2rem;
+    justify-content: center;
+
+    //@media (min-width: $screen-medium) {
+    //  grid-template-columns: repeat(auto-fit, 45rem);
+    //}
   }
 }

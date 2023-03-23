@@ -42,11 +42,9 @@ const ProjectsSection = function () {
 
   return (
     <div className="projects">
-      <div className="title">
-        <h2 className="title-name">Projects</h2> <ContactMeBtn />
-      </div>
+      <h2 className="title-name">Projects</h2>
 
-      <div className="project-cards">{contentJSX}</div>
+      <div className="project-container">{contentJSX}</div>
     </div>
   );
 };

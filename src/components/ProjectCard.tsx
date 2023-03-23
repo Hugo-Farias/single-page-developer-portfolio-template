@@ -12,7 +12,7 @@ const ProjectCard: React.FC<PropsT> = function ({ data }) {
 
   useEffect(() => {
     const loadImage = async function (imageName: string): Promise<string> {
-      const res = await import(`../../assets/images/${imageName}.webp`);
+      const res = await import(`../assets/images/${imageName}.webp`);
       return res.default;
     };
 
@@ -26,7 +26,16 @@ const ProjectCard: React.FC<PropsT> = function ({ data }) {
       <img src={imageUrl} alt={`Image ${image}`} className="async-image" />
       <div className="info">
         <h4 className="name">{name}</h4>
-        <h5 className="tech">{tech}</h5>
+        <div className="tech-container">
+          {tech.map((value) => (
+            <h5 className="tech">{value}</h5>
+          ))}
+        </div>
+      </div>
+
+      <div className="buttons">
+        <button>View Project</button>
+        <button>View Code</button>
       </div>
     </div>
   );
