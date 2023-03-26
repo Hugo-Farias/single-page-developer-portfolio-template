@@ -53,3 +53,10 @@ button {
   background-color: transparent;
   border: none;
 }
+
+h2 {
+  font-size: 6.8rem;
+  @media (max-width: $screen-small) {
+    font-size: 5rem;
+  }
+}
