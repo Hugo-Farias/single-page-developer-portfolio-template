@@ -20,17 +20,17 @@ const DUMMY_DATA = [
   {
     name: "entertainment web app",
     image: "thumbnail-project-4-large",
-    tech: ["html", "css", "javacript"],
+    tech: ["html", "css", "javascript"],
   },
   {
     name: "memory game",
     image: "thumbnail-project-5-large",
-    tech: ["html", "css", "javacript"],
+    tech: ["html", "css", "javascript"],
   },
   {
     name: "art gallery showcase",
     image: "thumbnail-project-6-large",
-    tech: ["html", "css", "javacript"],
+    tech: ["html", "css", "javascript"],
   },
 ];
 

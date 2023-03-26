@@ -9,6 +9,7 @@ interface PropsT {
 const ProjectCard: React.FC<PropsT> = function ({ data }) {
   const { image, name, tech } = data;
 
+  const [isHover, setIsHover] = useState<boolean>(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
@@ -23,7 +24,11 @@ const ProjectCard: React.FC<PropsT> = function ({ data }) {
   if (!imageUrl) return null;
 
   return (
-    <div className="project-card">
+    <div
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      className={`project-card ${isHover ? "hover" : ""}`}
+    >
       <img src={imageUrl} alt={`Image ${image}`} className="async-image" />
       <div className="info">
         <h4 className="name">{name}</h4>

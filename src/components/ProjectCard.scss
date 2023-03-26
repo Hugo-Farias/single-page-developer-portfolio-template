@@ -43,6 +43,9 @@
   @media (min-width: $screen-medium+100) {
     & .buttons {
       //visibility: hidden;
+      //background-color: rgba(255, 0, 0, 0.66);
+      //width: 100%;
+      //height: 100%;
       opacity: 0;
       position: absolute;
       top: 50%;
@@ -51,15 +54,15 @@
       flex-direction: column;
     }
 
-    & .async-image:hover {
+    &.hover .async-image {
       filter: brightness(30%);
+    }
 
-      & ~ .buttons {
-        //visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-        cursor: pointer;
-      }
+    &.hover .buttons {
+      //visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      cursor: pointer;
     }
   }
 }
