@@ -14,10 +14,10 @@ const Hero = function () {
             Nice to meet you! I'm <span className="name">Adam Keyes.</span>
           </h1>
 
-          <h2 className="description">
+          <p className="description">
             Based in the UK, I'm a front-end developer passionate about building
             accessible web apps that users love.
-          </h2>
+          </p>
 
           <Btn>Contact Me</Btn>
         </div>

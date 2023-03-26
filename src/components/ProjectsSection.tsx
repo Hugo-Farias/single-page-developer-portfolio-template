@@ -1,5 +1,6 @@
 import "./ProjectsSection.scss";
 import ProjectCard from "./ProjectCard";
+import Separator from "./common/Separator";
 
 const DUMMY_DATA = [
   {
@@ -36,7 +37,7 @@ const DUMMY_DATA = [
 
 const ProjectsSection = function () {
   const contentJSX = DUMMY_DATA.map((v, i) => {
-    return <ProjectCard data={v} key={i} />;
+    return <ProjectCard key={i} data={v} />;
   });
 
   return (
@@ -44,6 +45,7 @@ const ProjectsSection = function () {
       <h2 className="title-name">Projects</h2>
 
       <div className="project-container">{contentJSX}</div>
+      <Separator hide={true} />
     </div>
   );
 };

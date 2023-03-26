@@ -1,0 +1,47 @@
+@import "../variables";
+
+.contact-section {
+  @include flex-center;
+  flex-direction: column;
+  //justify-content: flex-start;
+  background-color: $color-secondary;
+  box-shadow: 0 0 0 100vmax $color-secondary;
+  clip-path: inset(0 -100vmax -100vmax -100vmax);
+  padding-block: 6rem;
+  text-align: center;
+
+  & .cta-container {
+    @include flex-center;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+  }
+
+  & form {
+    @include flex-center;
+    flex-direction: column;
+    gap: 2rem;
+    //padding-inline: 4rem;
+    & input,
+    & textarea {
+      min-width: 34.3rem;
+      max-width: 44.5rem;
+      width: 100vw;
+      color: inherit;
+      padding: 2rem 3rem;
+      font-family: inherit;
+      text-transform: uppercase;
+      background-color: transparent;
+      outline: transparent;
+      border: none;
+      border-bottom: 1px solid $color-gray;
+    }
+    & textarea {
+      padding-bottom: 6rem;
+    }
+
+    & :last-child {
+      align-self: flex-end;
+    }
+  }
+}
