@@ -21,16 +21,11 @@
 }
 
 body {
-  //position: relative;
-  //margin: 2.5rem 0 0 0;
-  //padding: 2.5rem 0;
-  //display: flex;
   display: grid;
   place-content: center;
-  //justify-content: center;
   min-width: 320px;
   min-height: 100vh;
-  //z-index: -999;
+  margin-bottom: 4rem;
 
   @media (min-width: $screen-small) {
     background-position: right 50vw top 12.4rem, right 50vw top 30vh;

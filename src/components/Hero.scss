@@ -27,11 +27,16 @@
     $offset: 0;
     z-index: 0;
     //margin-top: -#{$offset}rem;
-    backdrop-filter: blur(0.3rem);
+    //backdrop-filter: blur(1rem);
     @include image("../assets/images/image-profile-mobile.webp");
     background-size: contain;
     width: 17.4rem;
     height: 38.3rem;
+
+    @media (max-width: $screen-small) {
+      //background-color: red;
+      margin-top: -8rem;
+    }
 
     @media (min-width: $screen-small) {
       backdrop-filter: none;
@@ -42,7 +47,8 @@
       @include image("../assets/images/image-profile-tablet.webp");
       background-position: right;
       width: 32rem;
-      height: #{60 - $offset}rem;
+      //height: #{60 - $offset}rem;
+      height: 60rem;
     }
 
     @media (min-width: $screen-medium) {
@@ -50,8 +56,8 @@
       //width: 44.5rem;
       margin-right: 0;
       margin-top: -3.8rem;
-      height: #{$offset - 72}rem;
-      right: 0;
+      //margin-top: #{offset-top}rem;
+      //height: #{$offset - 72}rem;
     }
   }
 

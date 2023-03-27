@@ -10,7 +10,7 @@
   clip-path: inset(0 -100vmax -100vmax -100vmax);
   text-align: center;
   margin-left: -#{$offset}rem;
-  padding: 6rem 2rem 6rem #{$offset}rem;
+  padding: 6rem 2rem 3rem #{$offset}rem;
   //background-image: url("../assets/images/pattern-rings.svg");
   //background-repeat: no-repeat;
   @include image("../assets/images/pattern-rings.svg");
@@ -39,24 +39,46 @@
     //padding-inline: 4rem;
     & input,
     & textarea {
-      transition: background-color 0.3s;
+      position: relative;
+      $trans-duration: 0.3s;
+      transition: background-color $trans-duration, border-color $trans-duration;
       width: 100%;
       color: inherit;
       padding: 2rem 3rem;
       font-family: inherit;
-      text-transform: uppercase;
       background-color: transparent;
       backdrop-filter: blur(6px);
       outline: transparent;
       border: none;
       border-bottom: 1px solid $color-gray;
 
+      &::after {
+        content: "Please enter your name";
+        //height: 2rem;
+        //width: 6rem;
+        position: absolute;
+        color: red;
+        font-size: 14px;
+        bottom: 0;
+        right: 0;
+      }
+
+      &::placeholder {
+        text-transform: uppercase;
+      }
+
       &:focus {
         background-color: darken(rgba($color-secondary, 50%), 3%);
       }
+
+      &.invalid {
+        border-color: $color-invalid;
+      }
     }
     & textarea {
-      padding-bottom: 6rem;
+      resize: vertical;
+      min-height: 10rem;
+      max-height: 25rem;
     }
 
     & :last-child {

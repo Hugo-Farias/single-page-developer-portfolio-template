@@ -4,6 +4,7 @@ $color-primary: #4ee1a0;
 $color-secondary: #242424;
 $color-font: #fff;
 $color-gray: #d9d9d9;
+$color-invalid: #ff6f5b;
 
 //Screens
 $screen-small: 650+1px;
@@ -20,6 +21,12 @@ $screen-big: 1000+1px;
 @mixin image($path) {
   background-image: url("#{$path}");
   background-repeat: no-repeat;
+}
+
+@mixin transition-all($properties, $duration) {
+  @each $property in $properties {
+    transition: $property $duration;
+  }
 }
 
 //Fonts
