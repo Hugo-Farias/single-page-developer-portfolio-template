@@ -1,10 +1,11 @@
 @import "../variables";
 
 .hero {
+  $offset-top: 6.4;
   //$offset-right: 20;
-  $offset-left: 20;
-  margin: 0 0 0 -#{$offset-left}rem;
-  padding: 0 0 0 #{$offset-left}rem;
+  $offset-left: 25;
+  margin: -#{$offset-top}rem 0 0 -#{$offset-left}rem;
+  padding: #{$offset-top}rem 0 0 #{$offset-left}rem;
 
   position: relative;
   @include flex-center;
@@ -16,23 +17,24 @@
 
   @media (min-width: $screen-small) {
     gap: unset;
-    min-height: 45rem;
+    min-height: 60rem;
     flex-direction: row-reverse;
     flex-wrap: unset;
     text-align: unset;
   }
 
   & .photo {
-    $offset: 7;
+    $offset: 0;
     z-index: 0;
-    //backdrop-filter: blur(3rem);
-    margin-top: -#{$offset}rem;
+    //margin-top: -#{$offset}rem;
+    backdrop-filter: blur(0.3rem);
     @include image("../assets/images/image-profile-mobile.webp");
     background-size: contain;
     width: 17.4rem;
     height: 38.3rem;
 
     @media (min-width: $screen-small) {
+      backdrop-filter: none;
       position: absolute;
       margin-right: -2.2rem;
       top: 0;
@@ -47,6 +49,7 @@
       @include image("../assets/images/image-profile-desktop.webp");
       //width: 44.5rem;
       margin-right: 0;
+      margin-top: -3.8rem;
       height: #{$offset - 72}rem;
       right: 0;
     }
