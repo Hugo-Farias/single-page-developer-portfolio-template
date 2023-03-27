@@ -33,8 +33,10 @@ const ProjectCard: React.FC<PropsT> = function ({ data }) {
       <div className="info">
         <h4 className="name">{name}</h4>
         <div className="tech-container">
-          {tech.map((value) => (
-            <h5 className="tech">{value}</h5>
+          {tech.map((value, index) => (
+            <h5 key={index} className="tech">
+              {value}
+            </h5>
           ))}
         </div>
       </div>

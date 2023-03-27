@@ -1,40 +1,59 @@
 @import "../variables";
 
 .contact-section {
+  $offset: 35;
   @include flex-center;
   flex-direction: column;
-  //justify-content: flex-start;
+  gap: 6rem;
   background-color: $color-secondary;
   box-shadow: 0 0 0 100vmax $color-secondary;
   clip-path: inset(0 -100vmax -100vmax -100vmax);
-  padding-block: 6rem;
   text-align: center;
+  margin-left: -#{$offset}rem;
+  padding: 6rem 2rem 6rem #{$offset}rem;
+  //background-image: url("../assets/images/pattern-rings.svg");
+  //background-repeat: no-repeat;
+  @include image("../assets/images/pattern-rings.svg");
+  background-position: left 0 bottom 3rem;
+  background-clip: padding-box;
 
-  & .cta-container {
-    @include flex-center;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 6rem;
+  @media (min-width: $screen-big) {
+    flex-direction: unset;
+    align-items: flex-start;
+    text-align: unset;
   }
 
+  & .cta-container {
+    & :first-child {
+      margin-block: 1.5rem;
+    }
+  }
+
+  //min-width: 34.3rem;
   & form {
     @include flex-center;
+    width: 90%;
+    max-width: 44.5rem;
     flex-direction: column;
     gap: 2rem;
     //padding-inline: 4rem;
     & input,
     & textarea {
-      min-width: 34.3rem;
-      max-width: 44.5rem;
-      width: 100vw;
+      transition: background-color 0.3s;
+      width: 100%;
       color: inherit;
       padding: 2rem 3rem;
       font-family: inherit;
       text-transform: uppercase;
       background-color: transparent;
+      backdrop-filter: blur(6px);
       outline: transparent;
       border: none;
       border-bottom: 1px solid $color-gray;
+
+      &:focus {
+        background-color: darken(rgba($color-secondary, 50%), 3%);
+      }
     }
     & textarea {
       padding-bottom: 6rem;

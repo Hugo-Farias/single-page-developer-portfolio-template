@@ -1,11 +1,18 @@
 @import "../variables";
 
 .hero {
+  //$offset-right: 20;
+  $offset-left: 20;
+  margin: 0 0 0 -#{$offset-left}rem;
+  padding: 0 0 0 #{$offset-left}rem;
+
   position: relative;
   @include flex-center;
   flex-direction: column;
   gap: 3rem;
   text-align: center;
+  @include image("../assets/images/pattern-rings.svg");
+  background-position: left 0 top 8.4rem;
 
   @media (min-width: $screen-small) {
     gap: unset;
@@ -17,9 +24,11 @@
 
   & .photo {
     $offset: 7;
-    z-index: -1;
+    z-index: 0;
+    //backdrop-filter: blur(3rem);
     margin-top: -#{$offset}rem;
     @include image("../assets/images/image-profile-mobile.webp");
+    background-size: contain;
     width: 17.4rem;
     height: 38.3rem;
 
@@ -29,11 +38,9 @@
       top: 0;
       right: 0;
       @include image("../assets/images/image-profile-tablet.webp");
-      //margin-right: -2rem;
-      //transform: translateX(-50%);
       background-position: right;
       width: 32rem;
-      height: #{60-$offset}rem;
+      height: #{60 - $offset}rem;
     }
 
     @media (min-width: $screen-medium) {
@@ -47,10 +54,11 @@
 
   & .greeting {
     //margin-right: auto;
+    z-index: 1;
     max-width: 36rem;
 
     @media (min-width: $screen-small) {
-      width: 75vw;
+      width: 73vw;
       max-width: 71rem;
       margin-right: auto;
     }

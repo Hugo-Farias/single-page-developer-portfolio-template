@@ -7,8 +7,8 @@ $color-gray: #d9d9d9;
 
 //Screens
 $screen-small: 650+1px;
-$screen-medium: 768+1px;
-$screen-big: 1024+1px;
+$screen-medium: 868+1px;
+$screen-big: 1000+1px;
 
 //Mixins
 @mixin flex-center {
@@ -19,7 +19,6 @@ $screen-big: 1024+1px;
 
 @mixin image($path) {
   background-image: url("#{$path}");
-  background-size: contain;
   background-repeat: no-repeat;
 }
 
