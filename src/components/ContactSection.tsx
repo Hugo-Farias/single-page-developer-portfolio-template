@@ -59,36 +59,43 @@ const ContactSection = function () {
           action=""
           method="post"
         >
-          <input
-            className={isInvalid.name}
-            value={formInput.name}
-            onChange={handleChange}
-            placeholder="Name"
-            type="text"
-            id="name"
-            name="name"
-            required
-          />
-          <input
-            className={isInvalid.email}
-            value={formInput.email}
-            onChange={handleChange}
-            placeholder="Email"
-            type="email"
-            id="email"
-            name="email"
-            required
-          />
+          <div className={`input-wrapper ${isInvalid.name}`}>
+            <input
+              value={formInput.name}
+              onChange={handleChange}
+              placeholder="Name"
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+            {isInvalid.name ? <div className="invalid-icon">!</div> : ""}
+          </div>
+          <div className={`input-wrapper ${isInvalid.email}`}>
+            <input
+              value={formInput.email}
+              onChange={handleChange}
+              placeholder="Email"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+            {isInvalid.email ? <div className="invalid-icon">!</div> : ""}
+          </div>
 
-          <textarea
-            className={isInvalid.message}
-            value={formInput.message}
-            onChange={handleChange}
-            placeholder="Message"
-            id="message"
-            name="message"
-            required
-          />
+          <div className={`input-wrapper ${isInvalid.message}`}>
+            <textarea
+              // className={isInvalid.message}
+              value={formInput.message}
+              onChange={handleChange}
+              placeholder="Message"
+              id="message"
+              name="message"
+              required
+            />
+            {isInvalid.message ? <div className="invalid-icon">!</div> : ""}
+          </div>
 
           <Btn>Send Message</Btn>
         </form>

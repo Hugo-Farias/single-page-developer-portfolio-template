@@ -10,7 +10,8 @@
   clip-path: inset(0 -100vmax -100vmax -100vmax);
   text-align: center;
   margin-left: -#{$offset}rem;
-  padding: 6rem 2rem 3rem #{$offset}rem;
+  //padding: 6rem 2rem 3rem #{$offset}rem;
+  padding: 6rem 0 0 #{$offset}rem;
   //background-image: url("../assets/images/pattern-rings.svg");
   //background-repeat: no-repeat;
   @include image("../assets/images/pattern-rings.svg");
@@ -24,6 +25,8 @@
   }
 
   & .cta-container {
+    //max-width: 40rem;
+
     & :first-child {
       margin-block: 1.5rem;
     }
@@ -37,48 +40,74 @@
     flex-direction: column;
     gap: 2rem;
     //padding-inline: 4rem;
-    & input,
-    & textarea {
+
+    .input-wrapper {
       position: relative;
-      $trans-duration: 0.3s;
-      transition: background-color $trans-duration, border-color $trans-duration;
       width: 100%;
-      color: inherit;
-      padding: 2rem 3rem;
-      font-family: inherit;
-      background-color: transparent;
-      backdrop-filter: blur(6px);
-      outline: transparent;
-      border: none;
-      border-bottom: 1px solid $color-gray;
+      height: 100%;
+      & input,
+      & textarea {
+        $trans-duration: 0.3s;
+        transition: background-color $trans-duration,
+          border-color $trans-duration;
+        width: 100%;
+        color: inherit;
+        padding: 2rem 3rem;
+        font-family: inherit;
+        background-color: transparent;
+        backdrop-filter: blur(6px);
+        outline: transparent;
+        border: none;
+        border-bottom: 1px solid $color-gray;
 
-      &::after {
-        content: "Please enter your name";
-        //height: 2rem;
-        //width: 6rem;
+        &::placeholder {
+          text-transform: uppercase;
+        }
+
+        &:focus {
+          background-color: darken(rgba($color-secondary, 50%), 3%);
+        }
+      }
+
+      &.invalid input,
+      &.invalid textarea {
+        border-bottom: 1px solid $color-invalid;
+        //border-color: ;
+      }
+
+      &.invalid:before {
+        content: "Sorry, invalid format here";
         position: absolute;
-        color: red;
-        font-size: 14px;
-        bottom: 0;
+        color: $color-invalid;
+        white-space: nowrap;
+        font-size: 1.2rem;
+        bottom: -1.7rem;
         right: 0;
+        z-index: 2;
       }
 
-      &::placeholder {
-        text-transform: uppercase;
+      & textarea {
+        resize: vertical;
+        min-height: 10rem;
+        max-height: 25rem;
       }
 
-      &:focus {
-        background-color: darken(rgba($color-secondary, 50%), 3%);
+      & .invalid-icon {
+        position: absolute;
+        right: 1rem;
+        top: 1.7rem;
+        //align-self: flex-end;
+        display: grid;
+        place-content: center;
+        color: $color-invalid;
+        border: 1px solid $color-invalid;
+        font-size: 2rem;
+        height: 2.4rem;
+        width: 2.4rem;
+        //aspect-ratio: 1;
+        //padding: 2rem;
+        border-radius: 50%;
       }
-
-      &.invalid {
-        border-color: $color-invalid;
-      }
-    }
-    & textarea {
-      resize: vertical;
-      min-height: 10rem;
-      max-height: 25rem;
     }
 
     & :last-child {
