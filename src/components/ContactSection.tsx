@@ -3,12 +3,19 @@ import Btn from "./common/Btn";
 import Separator from "./common/Separator";
 import Navbar from "./Navbar";
 import React, { useState, FormEvent, ChangeEvent } from "react";
+import FormInput from "./common/FormInput";
 
 interface inputStateT {
   name: string;
   email: string;
   message: string;
 }
+
+const inputs = [
+  { tag: "input", name: "name", type: "text" },
+  { tag: "input", name: "email", type: "email" },
+  { tag: "textarea", name: "message", type: "text" },
+];
 
 const ContactSection = function () {
   const [formInput, setFormInput] = useState<inputStateT>({
@@ -34,8 +41,10 @@ const ContactSection = function () {
     setIsInvalid((prevState) => ({ ...prevState, [target.id]: "invalid" }));
   };
 
-  const handleChange = function (e: ChangeEvent) {
-    const target = e.target as HTMLFormElement;
+  const handleChange = function (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ): void {
+    const target = e.target;
     setFormInput((prevState) => ({ ...prevState, [target.id]: target.value }));
 
     if (!target.validity.valid) return;
@@ -59,48 +68,37 @@ const ContactSection = function () {
           action=""
           method="post"
         >
-          <div className={`input-wrapper ${isInvalid.name}`}>
-            <input
-              value={formInput.name}
-              onChange={handleChange}
-              placeholder="Name"
-              type="text"
-              id="name"
-              name="name"
-              required
-            />
-            {isInvalid.name ? <div className="invalid-icon">!</div> : ""}
-          </div>
-          <div className={`input-wrapper ${isInvalid.email}`}>
-            <input
-              value={formInput.email}
-              onChange={handleChange}
-              placeholder="Email"
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
-            {isInvalid.email ? <div className="invalid-icon">!</div> : ""}
-          </div>
+          <FormInput
+            tag="input"
+            name="name"
+            type="text"
+            value={formInput.name}
+            validation={isInvalid.name}
+            onChange={handleChange}
+          />
 
-          <div className={`input-wrapper ${isInvalid.message}`}>
-            <textarea
-              // className={isInvalid.message}
-              value={formInput.message}
-              onChange={handleChange}
-              placeholder="Message"
-              id="message"
-              name="message"
-              required
-            />
-            {isInvalid.message ? <div className="invalid-icon">!</div> : ""}
-          </div>
+          <FormInput
+            tag="input"
+            name="email"
+            type="email"
+            value={formInput.email}
+            validation={isInvalid.email}
+            onChange={handleChange}
+          />
+
+          <FormInput
+            tag="textarea"
+            name="message"
+            type="text"
+            value={formInput.message}
+            validation={isInvalid.message}
+            onChange={handleChange}
+          />
 
           <Btn>Send Message</Btn>
         </form>
       </div>
-      <Separator hide={false} />
+      <Separator />
       <Navbar />
     </>
   );
