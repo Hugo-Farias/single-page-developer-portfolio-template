@@ -5,24 +5,23 @@ import Navbar from "./Navbar";
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import FormInput from "./common/FormInput";
 
+interface inputsT {
+  tag: "input" | "textarea";
+  inputName: string;
+  type: "text" | "email";
+}
+const inputs: inputsT[] = [
+  { tag: "input", inputName: "name", type: "text" },
+  { tag: "input", inputName: "email", type: "email" },
+  { tag: "textarea", inputName: "message", type: "text" },
+];
+
 interface inputStateT {
   [key: string]: string;
   name: string;
   email: string;
   message: string;
 }
-
-interface inputsT {
-  tag: "input" | "textarea";
-  inputName: string;
-  type: "text" | "email";
-}
-
-const inputs: inputsT[] = [
-  { tag: "input", inputName: "name", type: "text" },
-  { tag: "input", inputName: "email", type: "email" },
-  { tag: "textarea", inputName: "message", type: "text" },
-];
 
 const ContactSection = function () {
   const [formInput, setFormInput] = useState<inputStateT>({
