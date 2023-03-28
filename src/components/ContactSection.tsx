@@ -6,15 +6,22 @@ import React, { useState, FormEvent, ChangeEvent } from "react";
 import FormInput from "./common/FormInput";
 
 interface inputStateT {
+  [key: string]: string;
   name: string;
   email: string;
   message: string;
 }
 
-const inputs = [
-  { tag: "input", name: "name", type: "text" },
-  { tag: "input", name: "email", type: "email" },
-  { tag: "textarea", name: "message", type: "text" },
+interface inputsT {
+  tag: "input" | "textarea";
+  inputName: string;
+  type: "text" | "email";
+}
+
+const inputs: inputsT[] = [
+  { tag: "input", inputName: "name", type: "text" },
+  { tag: "input", inputName: "email", type: "email" },
+  { tag: "textarea", inputName: "message", type: "text" },
 ];
 
 const ContactSection = function () {
@@ -52,6 +59,20 @@ const ContactSection = function () {
     setIsInvalid((prevState) => ({ ...prevState, [target.id]: "" }));
   };
 
+  const contentInputJSX = inputs.map((v, i) => {
+    return (
+      <FormInput
+        key={i}
+        tag={v.tag}
+        name={v.inputName}
+        type={v.type}
+        value={formInput[v.inputName]}
+        validation={isInvalid[v.inputName]}
+        onChange={handleChange}
+      />
+    );
+  });
+
   return (
     <>
       <div className="contact-section">
@@ -68,33 +89,7 @@ const ContactSection = function () {
           action=""
           method="post"
         >
-          <FormInput
-            tag="input"
-            name="name"
-            type="text"
-            value={formInput.name}
-            validation={isInvalid.name}
-            onChange={handleChange}
-          />
-
-          <FormInput
-            tag="input"
-            name="email"
-            type="email"
-            value={formInput.email}
-            validation={isInvalid.email}
-            onChange={handleChange}
-          />
-
-          <FormInput
-            tag="textarea"
-            name="message"
-            type="text"
-            value={formInput.message}
-            validation={isInvalid.message}
-            onChange={handleChange}
-          />
-
+          {contentInputJSX}
           <Btn>Send Message</Btn>
         </form>
       </div>
